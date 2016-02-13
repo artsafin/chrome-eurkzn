@@ -1,0 +1,85 @@
+<!doctype html>
+<!--
+ This page is shown when the extension button is clicked, because the
+ "browser_action" field in manifest.json contains the "default_popup" key with
+ value "popup.html".
+ -->
+<html>
+  <head>
+    <title>EuroKazan</title>
+    <meta charset="utf-8">
+    <style>
+      body {
+        font-family: "Segoe UI", "Lucida Grande", Tahoma, sans-serif;
+        font-size: 100%;
+      }
+      #status {
+        /* avoid an excessively wide status text */
+        white-space: pre;
+        text-overflow: ellipsis;
+        overflow: hidden;
+        max-width: 600px;
+      }
+
+      .data {
+        text-align: center;
+        text-shadow: #555 1px 1px 25px;
+      }
+      .data::after {
+        content: "";
+        opacity: 0.25;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        right: 0;
+        position: absolute;
+        z-index: -1;
+
+        background: #1558AF url(res/images/bg.jpg) 0px 0px;
+        animation: bgMove 120s linear 0s infinite alternate;
+        -webkit-animation: bgMove 120s linear 0s infinite alternate;
+      }
+
+      @-webkit-keyframes bgMove {
+        from { background-position: 0 0; }
+        to { background-position: -552px -448px; }
+      }
+      @keyframes bgMove {
+        from { background-position: 0 0; }
+        to { background-position: -552px -448px; }
+      }
+
+      #header {
+        font-weight: bold;
+      }
+
+      #best_value {
+        font-size: 5em;
+        padding: 0 1em 0 1em;
+      }
+
+      #best_bank {
+        font-size: 90%;
+      }
+    </style>
+
+    <!--
+      - JavaScript and HTML must be in separate files: see our Content Security
+      - Policy documentation[1] for details and explanation.
+      -
+      - [1]: https://developer.chrome.com/extensions/contentSecurityPolicy
+     -->
+    <script src="popup.js"></script>
+    <script src="vendor/date.js"></script>
+    <script src="vendor/date-ru-RU.js"></script>
+  </head>
+  <body>
+    <div id="status"></div>
+    <div class="data">
+      <div id="header"></div>
+      <div id="best_value"></div>
+      <div id="best_bank"></div>
+    </div>
+  </body>
+</html>
+

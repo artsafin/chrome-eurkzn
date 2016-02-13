@@ -1,0 +1,16 @@
+{
+  "manifest_version": 2,
+
+  "name": "EuroKazan",
+  "description": "Shows real exchangable EURRUB currency rates in Kazan",
+  "version": "1.0",
+
+  "browser_action": {
+    "default_icon": "res/images/icon.png",
+    "default_popup": "popup.html",
+    "default_title": "Get EURRUB rates"
+  },
+  "permissions": [
+    "http://1.artsafin.cz8.ru/"
+  ]
+}
